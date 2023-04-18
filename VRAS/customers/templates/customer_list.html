@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Customer List{% endblock %}
+{% block content %}
+
+
+  <h1>Customers</h1>
+
+  {% if user.is_authenticated %}
+
+    <ul>
+    {% for customer in object_list %}
+        <li>
+          {{ customer }}
+        </li>
+    {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>Please log in</p>
+
+  {% endif %}
+
+{% endblock %}

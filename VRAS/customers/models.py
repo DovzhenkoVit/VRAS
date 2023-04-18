@@ -15,4 +15,4 @@ class Customer(models.Model):
     email = models.EmailField(max_length=254)
 
     def __str__(self):
-        return self.name + self.surname
+        return f"{self.name} {self.surname}"

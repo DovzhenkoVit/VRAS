@@ -15,4 +15,4 @@ class Vehicle(models.Model):
     rental_rate = models.IntegerField()
 
     def __str__(self):
-        return self.car_brand + self.model
+        return f"{self.car_brand} {self.model} {self.year}"

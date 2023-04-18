@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Vehicle List{% endblock %}
+{% block content %}
+
+
+  <h1>Vehicles</h1>
+
+  {% if user.is_authenticated %}
+
+    <ul>
+    {% for vehicle in object_list %}
+        <li>
+          {{ vehicle }}
+        </li>
+    {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>Please log in</p>
+
+  {% endif %}
+
+{% endblock %}
