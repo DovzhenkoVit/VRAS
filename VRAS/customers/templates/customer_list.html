@@ -10,7 +10,7 @@
     <ul>
     {% for customer in object_list %}
         <li>
-          {{ customer }}
+          {{ customer }} <a href="{% url 'update_customer' customer.pk %}">(Edit)</a>
         </li>
     {% endfor %}
     </ul>
