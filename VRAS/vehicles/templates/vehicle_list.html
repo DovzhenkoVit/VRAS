@@ -14,6 +14,7 @@
         <th>Year</th>
         <th>Licence plate</th>
         <th>Rental rate</th>
+        <th><a href="{% url 'add_vehicle' %}">(Add new)</a></th>
       </tr>
 
     {% for vehicle in object_list %}

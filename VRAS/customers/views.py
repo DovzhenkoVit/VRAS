@@ -1,12 +1,19 @@
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView 
 from django.urls import reverse_lazy
-from .forms import EditCustomerForm
+from .forms import AddCustomerForm, EditCustomerForm
 from .models import Customer
 
 
 class CustomerView(ListView):
     model = Customer
     template_name = 'customer_list.html'
+
+
+class AddCustomerView(CreateView):
+    model = Customer
+    template_name = 'add_customer.html'
+    form_class = AddCustomerForm
+    success_url = reverse_lazy('customer_list')
 
 
 class EditCustomerView(UpdateView):
