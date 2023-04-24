@@ -7,13 +7,26 @@
 
   {% if user.is_authenticated %}
 
-    <ul>
+    <table>
+      <tr>
+        <th>Car brand</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Licence plate</th>
+        <th>Rental rate</th>
+      </tr>
+
     {% for vehicle in object_list %}
-        <li>
-          {{ vehicle }}
-        </li>
+        <tr>
+          <td>{{vehicle.car_brand}}</td>
+          <td>{{vehicle.model}}</td>
+          <td>{{vehicle.year}}</td>
+          <td>{{vehicle.licence_plate}}</td>
+          <td>{{vehicle.rental_rate}}</td>
+          <td><a href="{% url 'update_vehicle' vehicle.pk %}">(Edit)</a></td>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
 
   {% else %}
     <p>Please log in</p>
