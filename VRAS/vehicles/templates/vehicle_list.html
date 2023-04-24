@@ -24,6 +24,7 @@
           <td>{{vehicle.licence_plate}}</td>
           <td>{{vehicle.rental_rate}}</td>
           <td><a href="{% url 'update_vehicle' vehicle.pk %}">(Edit)</a></td>
+          <td><a href="{% url 'delete_vehicle' vehicle.pk %}">(Delete)</a></td>
         </tr>
     {% endfor %}
     </table>
