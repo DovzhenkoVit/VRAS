@@ -7,7 +7,7 @@ The Vehicle Rental Accounting System web application allow a vehicle rental busi
 
 PROJECT TITLE: Vehicle Rental Accounting System (VRAS)
 PURPOSE OF PROJECT: To automate the accounting processes of vehicle rental business.
-VERSION or DATE: ver. 0.1
+VERSION: ver. 0.2
 HOW TO START THIS PROJECT:
 AUTHOR: Vitaliy Dovzhenko
 USER INSTRUCTIONS: to be added
