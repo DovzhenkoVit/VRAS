@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Edit Rental Agreement{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+	<h1>Update Rental Agreement: {{ rental_agreement }}</h1>
+	<br><br>
+
+	<div class="form-group">
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}		
+			<br><br>
+			<button class="btn btn-secondary">Update</button>
+			<a href="{% url 'rental_agreement_list' %}" class="btn btn-secondary">Back</a>
+		</form>
+	</div>
+
+{% else %}
+
+You`re not allowed. Please login.
+
+{% endif %}
+
+
+{% endblock %}

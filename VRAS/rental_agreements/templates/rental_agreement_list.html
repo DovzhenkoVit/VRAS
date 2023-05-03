@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Rental Agreement List{% endblock %}
+{% block content %}
+
+
+  <h1>Rental Agreements</h1>
+
+  {% if user.is_authenticated %}
+
+    <a href="{% url 'add_rental_agreement' %}">(Add new)</a>
+
+    <ul>
+    {% for rental_agreement in object_list %}
+        <li>
+          {{ rental_agreement }}
+          <a href="{% url 'update_rental_agreement' rental_agreement.pk %}">(Edit)</a>
+          <a href="{% url 'delete_rental_agreement' rental_agreement.pk %}">(Delete)</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>Please log in</p>
+
+  {% endif %}
+
+{% endblock %}
