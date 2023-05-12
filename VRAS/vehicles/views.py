@@ -13,14 +13,12 @@ class AddVehicleView(CreateView):
     model = Vehicle
     form_class = AddVehicleForm
     template_name = 'add_vehicle.html'
-    success_url = reverse_lazy('vehicle_list')
 
 
 class EditVehicleView(UpdateView):
     model = Vehicle
     form_class = EditVehicleForm
     template_name = 'update_vehicle.html'
-    success_url = reverse_lazy('vehicle_list')
 
 
 class DeleteVehicleView(DeleteView):

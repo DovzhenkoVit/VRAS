@@ -13,14 +13,12 @@ class AddCustomerView(CreateView):
     model = Customer
     template_name = 'add_customer.html'
     form_class = AddCustomerForm
-    success_url = reverse_lazy('customer_list')
 
 
 class EditCustomerView(UpdateView):
     model = Customer
     form_class = EditCustomerForm
     template_name = 'update_customer.html'
-    success_url = reverse_lazy('customer_list')
 
 
 class DeleteCustomerView(DeleteView):
