@@ -1,0 +1,11 @@
+<!-- customers/templates/customer_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{% if request.resolver_match.url_name == 'customer-add' %}Add{% else %}Edit{% endif %} Customer</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if request.resolver_match.url_name == 'customer-add' %}Add{% else %}Save{% endif %}</button>
+  </form>
+{% endblock %}

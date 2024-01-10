@@ -1,0 +1,12 @@
+<!-- rental_agreements/templates/rental_agreement_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Договори Оренди</h2>
+  <ul>
+    {% for agreement in object_list %}
+      <li><a href="{% url 'rental-agreement-detail' agreement.pk %}">{{ agreement.customer }} - {{ agreement.vehicle }} ({{ agreement.start_date }} to {{ agreement.end_date }})</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'rental-agreement-add' %}">Додати</a>
+{% endblock %}

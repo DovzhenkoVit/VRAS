@@ -1,0 +1,12 @@
+<!-- customers/templates/customer_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ customer }}</h1>
+  <p>Address: {{ customer.address }}</p>
+  <p>Email: {{ customer.email }}</p>
+  <p>Phone Number: {{ customer.phone_number }}</p>
+  <!-- Add any other fields you want to display -->
+  <a href="{% url 'customer-edit' customer.pk %}">Edit</a>
+  <a href="{% url 'customer-delete' customer.pk %}">Delete</a>
+{% endblock %}

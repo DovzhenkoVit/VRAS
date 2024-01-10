@@ -1,0 +1,11 @@
+<!-- rental_agreements/templates/rental_agreement_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% if form.instance.pk %}Редагувати договір оренди{% else %}Додати договір оренди{% endif %}</h2>
+  <form method="post" action="{% if form.instance.pk %}{% url 'rental-agreement-edit' form.instance.pk %}{% else %}{% url 'rental-agreement-add' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Оновити{% else %}Додати{% endif %}</button>
+  </form>
+{% endblock %}

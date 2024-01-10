@@ -3,24 +3,25 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-	<h1>Add new Rental Agreement:</h1>
-	<br><br>
+    <div class="container">
+        <h1>Створити новий договір оренди</h1>
+        <br><br>
 
-	<div class="form-group">
-		<form method="POST">
-			{% csrf_token %}
-			{{ form.as_p }}		
-			<br><br>
-			<button>Add</button>
-			<a href="{% url 'rental_agreement_list' %}">Back</a>
-		</form>
-	</div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}		
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Створити</button>
+            <a href="{% url 'rental_agreement_list' %}" class="btn btn-secondary">Назад</a>
+        </form>
+    </div>
 
 {% else %}
-
-You`re not allowed. Please login.
-
+    <div class="container">
+        <p>Ви не маєте доступу. Будь ласка, увійдіть в систему.</p>
+    </div>
 {% endif %}
-
 
 {% endblock %}

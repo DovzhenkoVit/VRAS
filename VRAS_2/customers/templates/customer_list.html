@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer List{% endblock %}
+
+{% block header %}Customer List{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for customer in object_list %}
+            <li>{{ customer.first_name }} {{ customer.last_name }} - {{ customer.email }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'customer-add' %}">Add Customer</a>
+{% endblock %}

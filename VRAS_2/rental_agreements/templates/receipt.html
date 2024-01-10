@@ -1,0 +1,13 @@
+<!-- rental_agreements/templates/receipt.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Квитанція договору оренди</h2>
+  <p><strong>Клієнт</strong> {{ rental_agreement.customer }}</p>
+  <p><strong>Транспортний засіб</strong> {{ rental_agreement.vehicle }}</p>
+  <p><strong>Дата початку</strong> {{ rental_agreement.start_date }}</p>
+  <p><strong>Дата кінця</strong> {{ rental_agreement.end_date }}</p>
+  <p><strong>Ціна оренди</strong> {{ rental_agreement.rental_cost }}</p>
+  <p><strong>Оплачено</strong> {% if rental_agreement.paid %}так{% else %}ні</a>
+{% endblock %}
+

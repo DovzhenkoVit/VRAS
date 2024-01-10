@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Rental Agreement Invoice{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1>Квитанція договору оренди</h1>
+
+    {% if user.is_authenticated %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Дата початку</th>
+                <th scope="col">Дата кінця</th>
+                <th scope="col">Ціна оренди</th>
+                <th scope="col">Оплачено</th>
+                <th scope="col">Транспортний засіб</th>
+                <th scope="col">Клієнт</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in rental_agreements %}
+            <tr>
+                <td>{{ invoice.rental_start_date }}</td>
+                <td>{{ invoice.rental_end_date }}</td>
+                <td>{{ invoice.rental_fee }}</td>
+                <td>{{ invoice.is_paid }}</td>
+                <td>{{ invoice.vehicle }}</td>
+                <td>{{ invoice.customer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+    <p>Ви не маєте доступу. Будь ласка, увійдіть в систему.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,9 +1,13 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+import io
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View, TemplateView
+from django.http import FileResponse, HttpResponse
 from django.urls import reverse_lazy
+from django.template import loader
+
 from .models import RentalAgreement
 from .forms import AddRentalAgreementForm, EditRentalAgreementForm
 
-# Create your views here.
+from reportlab.pdfgen import canvas
 
 
 class RentalAgreementView(ListView):
@@ -27,3 +31,16 @@ class DeleteRentalAgreementView(DeleteView):
     model = RentalAgreement
     template_name = 'delete_rental_agreement.html'
     success_url = reverse_lazy('rental_agreement_list')
+
+
+class InvoiceView(View):
+    def get(self, request, pk):
+
+
+        invoice = RentalAgreement.objects.filter(pk=pk)
+        print(invoice)
+        template = loader.get_template('invoice.html')
+        context = {
+            'rental_agreements': invoice,
+        }
+        return HttpResponse(template.render(context, request))

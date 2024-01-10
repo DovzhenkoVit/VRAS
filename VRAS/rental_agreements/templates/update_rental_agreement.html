@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-	<h1>Update Rental Agreement: {{ rental_agreement }}</h1>
+	<h1>Редагувати договір оренди: {{ rental_agreement }}</h1>
 	<br><br>
 
 	<div class="form-group">
@@ -11,14 +11,14 @@
 			{% csrf_token %}
 			{{ form.as_p }}		
 			<br><br>
-			<button class="btn btn-secondary">Update</button>
-			<a href="{% url 'rental_agreement_list' %}" class="btn btn-secondary">Back</a>
+			<button class="btn btn-secondary">Оновити</button>
+			<a href="{% url 'rental_agreement_list' %}" class="btn btn-secondary">Назад</a>
 		</form>
 	</div>
 
 {% else %}
 
-You`re not allowed. Please login.
+Ви не маєте доступу. Будь ласка, увійдіть в систему.
 
 {% endif %}
 

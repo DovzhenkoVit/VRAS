@@ -2,20 +2,16 @@
 {% block title %}Register{% endblock %}
 {% block content %}
 
+<div class="container">
+    <h1>Реєстрація</h1>
+    <br><br>
 
-
-<h1>Register</h1>
-<br><br>
-
-<div class="form-group">
-	<form method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}		
-		<br><br>
-		<button class="btn btn-secondary">Register</button>
-	</form>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}		
+        <br><br>
+        <button type="submit" class="btn btn-primary">Зареєструватись</button>
+    </form>
 </div>
-
-
 
 {% endblock %}

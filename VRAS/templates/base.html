@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -10,29 +10,81 @@
           VRAS
       {% endblock %}
     </title>
+
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #343a40;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+      }
+
+      nav {
+        background-color: #007bff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #ffffff;
+        margin: 0 20px; /* Increase the margin between links */
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .container {
+        margin: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      h1 {
+        color: #dc3545;
+        margin-bottom: 20px; /* Increase the margin */
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
+    <header>
       {% if user.is_authenticated %}
-
         <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'rental_agreement_list' %}">Rental Agreements</a>
         <a href="{% url 'vehicle_list' %}">Vehicles</a>
         <a href="{% url 'customer_list' %}">Customers</a>
-
       {% else %}
         <h1>Please log in</h1>
-
         <a href="{% url 'login' %}">Login</a><br>
         <a href="{% url 'register' %}">Register</a>
-
       {% endif %}
+    </header>
 
-      <br>
-      <div class="container">
-          {% block content %}
+    <nav>
+      <!-- Navigation links can be added here if needed -->
+    </nav>
 
-          {% endblock %} 
-      </div>
-
+    <div class="container">
+      {% block content %}
+      {% endblock %} 
+    </div>
   </body>
 </html>

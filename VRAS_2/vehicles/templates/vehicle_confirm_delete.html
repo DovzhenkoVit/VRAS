@@ -1,0 +1,12 @@
+<!-- vehicles/templates/vehicle_confirm_delete.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Підтвердження видалення </h2>
+  <p>Ви хочете видалити транспортний засіб "{{ object }}"?</p>
+  <form method="post" action="{% url 'vehicle-delete' object.pk %}">
+    {% csrf_token %}
+    <button type="submit">Видалити</button>
+  </form>
+  <a href="{% url 'vehicle-detail' object.pk %}">Назад</a>
+{% endblock %}

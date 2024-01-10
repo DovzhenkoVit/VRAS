@@ -1,0 +1,13 @@
+<!-- vehicles/templates/vehicle_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Транспорний засіб</h2>
+  <p><strong>Марка транспортного засобу</strong> {{ object.manufacturer }}</p>
+  <p><strong>Модель</strong> {{ object.model }}</p>
+  <p><strong>Рік</strong> {{ object.year }}</p>
+  <p><strong>Номерний знак</strong> {{ object.license_plate }}</p>
+  <p><strong>Вартість оренди за день</strong> {{ object.rental_cost }}</p>
+  <a href="{% url 'vehicle-edit' object.pk %}">Редагувати</a>
+  <a href="{% url 'vehicle-delete' object.pk %}">Видалити</a>
+{% endblock %}

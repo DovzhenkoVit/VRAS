@@ -2,26 +2,40 @@
 {% block title %}Rental Agreement List{% endblock %}
 {% block content %}
 
+<div class="container">
+    <h1>Договори Оренди</h1>
 
-  <h1>Rental Agreements</h1>
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_rental_agreement' %}" class="btn btn-primary">(Додати)</a>
 
-  {% if user.is_authenticated %}
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Ім'я Прізвище</th>
+                    <th scope="col">Транспортний засіб</th>
+                    <th scope="col">Дата укладання договору</th>
+                    <th scope="col" class="text-right">Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rental_agreement in object_list %}
+                    <tr>
+                        <td>{{ rental_agreement.customer }}</td>
+                        <td>{{ rental_agreement.vehicle }}</td>
+                        <td>{{ rental_agreement.rental_start_date }}</td>
+                        <td class="text-right">
+                            <a href="{% url 'generate_invoice' rental_agreement.pk %}" class="btn btn-success btn-sm">(Отримати квитанцію)</a>
+                            <a href="{% url 'update_rental_agreement' rental_agreement.pk %}" class="btn btn-warning btn-sm">(Редагувати)</a>
+                            <a href="{% url 'delete_rental_agreement' rental_agreement.pk %}" class="btn btn-danger btn-sm">(Видалити)</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{% url 'add_rental_agreement' %}">(Add new)</a>
-
-    <ul>
-    {% for rental_agreement in object_list %}
-        <li>
-          {{ rental_agreement }}
-          <a href="{% url 'update_rental_agreement' rental_agreement.pk %}">(Edit)</a>
-          <a href="{% url 'delete_rental_agreement' rental_agreement.pk %}">(Delete)</a>
-        </li>
-    {% endfor %}
-    </ul>
-
-  {% else %}
-    <p>Please log in</p>
-
-  {% endif %}
+    {% else %}
+        <p>Ви не маєте доступу. Будь ласка, увійдіть в систему.</p>
+    {% endif %}
+</div>
 
 {% endblock %}

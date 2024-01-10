@@ -1,0 +1,16 @@
+<!-- rental_agreements/templates/rental_agreement_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Договір Оренди</h2>
+  <p><strong>Клієнт</strong> {{ object.customer }}</p>
+  <p><strong>Транспортний засіб</strong> {{ object.vehicle }}</p>
+  <p><strong>Дата початку оренди</strong> {{ object.start_date }}</p>
+  <p><strong>Дата кінця оренди</strong> {{ object.end_date }}</p>
+  <p><strong>Ціна оренди</strong> {{ object.rental_cost }}</p>
+  <a href="{% url 'receipt' object.pk %}">Отримати квитанцію</a>
+  {% if not object.paid %}
+    <a href="{% url 'rental-agreement-edit' object.pk %}">Редагувати</a>
+    <a href="{% url 'receipt' object.pk %}">Оплачено</a>
+  {% endif %}
+{% endblock %}

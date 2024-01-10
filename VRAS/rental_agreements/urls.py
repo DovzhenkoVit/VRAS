@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import RentalAgreementView, AddRentalAgreementView,\
-                   EditRentalAgreementView, DeleteRentalAgreementView
+                   EditRentalAgreementView, DeleteRentalAgreementView,\
+                   InvoiceView
 
 
 urlpatterns = [
@@ -8,4 +9,5 @@ urlpatterns = [
     path('add_rental_agreement/', AddRentalAgreementView.as_view(),name='add_rental_agreement'),
     path('edit/<int:pk>', EditRentalAgreementView.as_view(), name='update_rental_agreement'),
     path('<int:pk>/delete', DeleteRentalAgreementView.as_view(), name='delete_rental_agreement'),
+    path('invoice/<int:pk>', InvoiceView.as_view(), name='generate_invoice'),
 ]

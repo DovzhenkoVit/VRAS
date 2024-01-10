@@ -1,0 +1,11 @@
+<!-- vehicles/templates/vehicle_form.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% if form.instance.pk %}Редагувати транспортний засіб:{% else %}Немає доступу{% endif %}</h2>
+  <form method="post" action="{% if form.instance.pk %}{% url 'vehicle-edit' form.instance.pk %}{% else %}{% url 'vehicle-add' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Оновити{% else %}Додати{% endif %}</button>
+  </form>
+{% endblock %}

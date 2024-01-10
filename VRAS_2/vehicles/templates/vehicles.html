@@ -1,0 +1,12 @@
+<!-- vehicles/templates/vehicle_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Транспортні Засоби</h2>
+  <ul>
+    {% for vehicle in object_list %}
+      <li><a href="{% url 'vehicle-detail' vehicle.pk %}">{{ vehicle.manufacturer }} {{ vehicle.model }} ({{ vehicle.year }})</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'vehicle-add' %}">Додати транспортний засоби</a>
+{% endblock %}

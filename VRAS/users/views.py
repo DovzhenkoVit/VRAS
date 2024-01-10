@@ -4,9 +4,6 @@ from django.contrib.auth import login, authenticate
 from django.urls import reverse_lazy
 
 
-# Create your views here.
-
-
 class UserRegisterView(CreateView):
     form_class = UserCreationForm
     template_name = 'registration/register.html'
